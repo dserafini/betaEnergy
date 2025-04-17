@@ -1,0 +1,19 @@
+/run/initialize
+
+# inactivate ionization
+/process/inactivate eIoni
+/process/inactivate ionIoni
+
+# Ag-111 Z 47 A 111
+# Re-186 Z 75 A 186
+# Lu-177 Z 71 A 177
+/gun/particle ion
+/gun/ion 47 111
+/gun/direction 1 0 0
+/gun/energy 0 eV
+
+#/tracking/verbose 2
+#/analysis/setFileName output.root
+
+/run/printProgress 10000
+/run/beamOn 100000
