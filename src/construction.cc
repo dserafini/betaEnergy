@@ -10,7 +10,8 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 {
 	// do not reinvent the wheel (materials)
 	G4NistManager *nist = G4NistManager::Instance();
-	G4Material *worldMat = nist->FindOrBuildMaterial("G4_AIR");
+	G4Material *worldMat = nist->FindOrBuildMaterial("G4_Galactic");
+	// G4_WATER G4_AIR G4_Galactic G4_URANIUM_MONOCARBIDE
 	// all physics happens within a boundary called world volume
 	// the world volume is what we have to return at the end of this method so it is necessary
 	
