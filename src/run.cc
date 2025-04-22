@@ -42,7 +42,7 @@ void MyRunAction::BeginOfRunAction(const G4Run* run)
   // man->OpenFile();
 }
 
-void MyRunAction::EndOfRunAction(const G4Run*)
+void MyRunAction::EndOfRunAction(const G4Run* run)
 {
   G4cout << "MyRunAction::EndOfRunAction" << G4endl;
   
@@ -50,4 +50,25 @@ void MyRunAction::EndOfRunAction(const G4Run*)
   man->Write();
   // it is very important to always write before closing otherwise the root file could take heavy damage
   man->CloseFile();
+
+  SaveRunParameters(run);
+}
+
+void MyRunAction::SaveRunParameters(const G4Run* run)
+{
+  G4cout << "MyRunAction::SaveRunParameters" << G4endl;
+
+  G4AnalysisManager *man = G4AnalysisManager::Instance();
+  G4int runID = run->GetRunID();
+  std::string filename = "output" + std::to_string(runID) + ".root";
+  TFile *f = new TFile(filename.c_str(), "UPDATE");
+  
+
+  G4int genEvents = run->GetNumberOfEvent();
+  // TParameter<double> *voltage = new TParameter<double>("Voltage", 1200.0);
+  TParameter<int> *nEvents = new TParameter<int>("nEvents", genEvents);
+
+  nEvents->Write();
+
+  f->Close();
 }

@@ -1,5 +1,5 @@
 # which is the minimum version of cmake that we need to compile our code
-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.6...3.22.1)
 
 # what is the name of the project that we want to start
 project(Simulation)
@@ -42,6 +42,10 @@ file(GLOB VIS_FILE
 )
 file(COPY ${VIS_FILE} DESTINATION ${PROJECT_BINARY_DIR})
 
+# I need ROOT
+find_package(ROOT REQUIRED COMPONENTS RIO Tree)
+include_directories(${ROOT_INCLUDE_DIRS})
+
 # we create the executable with a certain name: sim
 # we have to write the main file where the source code is added: sim.cc
 # we use the variables that we created: sources and headers
@@ -49,6 +53,9 @@ add_executable(sim sim.cc ${sources} ${headers})
 
 # link to Geant4 libraries otherwise it cannot find them
 target_link_libraries(sim ${Geant4_LIBRARIES})
+
+# link to ROOT libraries
+target_link_libraries(sim ${ROOT_LIBRARIES})
 
 # Adds a target with the given name that executes the given commands
 add_custom_target(Simulation DEPENDS sim)
