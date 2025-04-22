@@ -3,6 +3,8 @@
 MyStackingAction::MyStackingAction()
 {
 	G4cout << "MyStackingAction::MyStackingAction" << G4endl;
+
+    counter = 0;
 }
 
 MyStackingAction::~MyStackingAction() {}
@@ -16,9 +18,8 @@ G4ClassificationOfNewTrack MyStackingAction::ClassifyNewTrack(
 		
     const G4VProcess *aProcess = aTrack->GetCreatorProcess();
     G4String aProcessName = "none";
-    //if (aProcess)
-        //aProcessName = aProcess->GetProcessName();
-    // G4cout << "from: " << aProcessName << G4endl;
+    if (aProcess)
+        aProcessName = aProcess->GetProcessName();
     
     //G4cout << aTrack->GetDefinition()->GetParticleName() << " of " << aTrack->GetKineticEnergy()/keV << " keV from " << aProcessName << G4endl;
     G4AnalysisManager *man = G4AnalysisManager::Instance();

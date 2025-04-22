@@ -21,6 +21,9 @@ class MyStackingAction : public G4UserStackingAction
   G4ClassificationOfNewTrack ClassifyNewTrack(const G4Track* aTrack) override;
   // void NewStage() override;
   // void PrepareNewEvent() override;
+
+  private:
+    G4int counter;
 };
 
 #endif
