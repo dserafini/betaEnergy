@@ -25,7 +25,6 @@ int main(int argc, char** argv)
 	runManager->SetUserInitialization(new MyPhysicsList());
 	runManager->SetUserInitialization(new MyActionInitialization());
 
-	runManager->Initialize();
 	// but you need detector, physics, track and step information
 
 	// we need for user interface
