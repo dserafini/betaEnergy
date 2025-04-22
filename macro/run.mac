@@ -1,3 +1,6 @@
+# set cuts
+# /cuts/setLowEdge 170 keV
+
 /run/initialize
 
 # inactivate ionization
@@ -15,5 +18,7 @@
 #/tracking/verbose 2
 #/analysis/setFileName output.root
 
-/run/printProgress 10000
-/run/beamOn 100000
+/run/printProgress 100000
+/run/beamOn 1000000
+
+/cuts/dump
