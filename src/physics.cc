@@ -3,6 +3,8 @@
 #include "G4EmPenelopePhysics.hh"
 #include "G4EmStandardPhysics_option4.hh"
 #include "G4RadioactiveDecayPhysics.hh"
+#include "G4DecayPhysics.hh"
+// #include "G4EmParameters.hh"
 
 MyPhysicsList::MyPhysicsList()
 {
@@ -13,6 +15,10 @@ MyPhysicsList::MyPhysicsList()
 	RegisterPhysics (new G4EmStandardPhysics());
 	// G4EmStandardPhysics G4EmPenelopePhysics G4EmStandardPhysics_option4
 	RegisterPhysics (new G4RadioactiveDecayPhysics());
+	RegisterPhysics (new G4DecayPhysics());
+
+	// G4EmParameters::Instance()->SetFluo(true);
+	// G4EmParameters::Instance()->SetAuger(true);
 }
 
 MyPhysicsList::~MyPhysicsList()
