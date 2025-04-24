@@ -35,9 +35,9 @@ void drawHisto(TString file_name = "output0.root") {
     // Collega i rami alle variabili
     tree_channels->SetBranchAddress("eini", &eini);
     
-    Int_t nBinX = 750;
+    Int_t nBinX = 500;
     Float_t startX = -.5;
-    Float_t endX = 1499.5;
+    Float_t endX = 50.5;
     TH1F *hEini = new TH1F("hEini","Initial e- energy",nBinX,startX,endX);
     hEini->GetXaxis()->SetTitle("Energy (keV)");
     hEini->GetYaxis()->SetTitle("dN / dE (1/keV)");
