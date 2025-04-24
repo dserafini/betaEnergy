@@ -19,7 +19,10 @@ G4ClassificationOfNewTrack MyStackingAction::ClassifyNewTrack(
     const G4VProcess *aProcess = aTrack->GetCreatorProcess();
     G4String aProcessName = "none";
     if (aProcess)
+    {
         aProcessName = aProcess->GetProcessName();
+        G4cout << "Process: " << aProcessName << G4endl;
+    }
     
     //G4cout << aTrack->GetDefinition()->GetParticleName() << " of " << aTrack->GetKineticEnergy()/keV << " keV from " << aProcessName << G4endl;
     G4AnalysisManager *man = G4AnalysisManager::Instance();
@@ -31,7 +34,7 @@ G4ClassificationOfNewTrack MyStackingAction::ClassifyNewTrack(
     if(aTrack->GetDefinition() == G4Electron::Definition())
     {
         man->FillNtupleDColumn(0, 0, aTrack->GetKineticEnergy() / keV);
-        return fKill;
+        // return fKill;
     }
     
     // particle is anti_nu_e
