@@ -4,7 +4,7 @@
 #include "G4EmStandardPhysics_option4.hh"
 #include "G4RadioactiveDecayPhysics.hh"
 #include "G4DecayPhysics.hh"
-// #include "G4EmParameters.hh"
+#include "G4EmParameters.hh"
 
 MyPhysicsList::MyPhysicsList()
 {
@@ -15,7 +15,7 @@ MyPhysicsList::MyPhysicsList()
 	RegisterPhysics (new G4EmStandardPhysics());
 	// G4EmStandardPhysics G4EmPenelopePhysics G4EmStandardPhysics_option4
 	RegisterPhysics (new G4RadioactiveDecayPhysics());
-	RegisterPhysics (new G4DecayPhysics());
+	// RegisterPhysics (new G4DecayPhysics());
 
 	// G4EmParameters::Instance()->SetFluo(true);
 	// G4EmParameters::Instance()->SetAuger(true);
@@ -26,9 +26,9 @@ MyPhysicsList::~MyPhysicsList()
 
 void MyPhysicsList::SetCuts()
 {
-    // SetCutValue(0.01*mm, "gamma");
-    SetCutValue(1*mm, "e-");
-    // SetCutValue(0.01*mm, "e+");
+    // SetCutValue(1*eV, "gamma");
+    // SetCutValue(1*eV, "e-");
+    // SetCutValue(1*eV, "e+");
 
 	// come fatto nell'esempio B3a
 	// G4VUserPhysicsList::SetCuts();
