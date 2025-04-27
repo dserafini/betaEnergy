@@ -37,7 +37,7 @@ void drawHisto(TString file_name = "output0.root") {
     
     Int_t nBinX = 500;
     Float_t startX = -.5;
-    Float_t endX = 50.5;
+    Float_t endX = 49.5;
     TH1F *hEini = new TH1F("hEini","Initial e- energy",nBinX,startX,endX);
     hEini->GetXaxis()->SetTitle("Energy (keV)");
     hEini->GetYaxis()->SetTitle("dN / dE (1/keV)");
